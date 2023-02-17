@@ -33,23 +33,10 @@ export function Home() {
       </View>
 
       <ScrollView>
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
+        <Participant name="Emanuela Xavier" />
+        <Participant name="Margarida André" />
+        <Participant name="Joelma Maria"/>
+        <Participant name="Marília Kinanga" />
       </ScrollView>
 
     </View>
