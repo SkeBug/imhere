@@ -1,4 +1,5 @@
-import { Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Participant } from '../../components/Participant'
 import { styles } from './styles'
 
 export function Home() {
@@ -6,7 +7,7 @@ export function Home() {
   function handleParticipantAdd() {
     console.log('clique')
   }
-
+  
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>
@@ -30,7 +31,27 @@ export function Home() {
           </Text>
         </TouchableOpacity>
       </View>
-      
+
+      <ScrollView>
+        <Participant />
+        <Participant />
+        <Participant />
+        <Participant />
+        <Participant />
+        <Participant />
+        <Participant />
+        <Participant />
+        <Participant />
+        <Participant />
+        <Participant />
+        <Participant />
+        <Participant />
+        <Participant />
+        <Participant />
+        <Participant />
+        <Participant />
+      </ScrollView>
+
     </View>
   )
 }
