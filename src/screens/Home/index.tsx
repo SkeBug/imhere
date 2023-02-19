@@ -6,15 +6,17 @@ import { styles } from './styles'
 export function Home() {
 
   //participants => é o estado && setParticipants é função que atualiza o estado.
-  const [participants, setParticipants] = useState(['Emanuela'])
+  const [participants, setParticipants] = useState<string[]>([])
+  const [participantName, setParticipantName] = useState('')
 
   function handleParticipantAdd() {
 
-    if (participants.includes('Telma')) {
+    if (participants.includes(participantName)) {
       return Alert.alert('Participante duplicado', 'Já existe um participante na lista com este nome.')
     }
 
-    setParticipants(prevState => [...prevState, 'Margarida'])
+    setParticipants(prevState => [...prevState, participantName])
+    setParticipantName('')
   }
 
   function handleParticipantRemove(name: string) {
@@ -45,6 +47,9 @@ export function Home() {
           style={styles.input}
           placeholder="Nome do participante"
           placeholderTextColor="#6B6B6B"
+          onChangeText={setParticipantName}
+          // onChangeText={text => setParticipantName(text)}
+          value={participantName}
         />
 
         <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
