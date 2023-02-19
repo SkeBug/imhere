@@ -1,17 +1,33 @@
-import { FlatList, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { useState } from 'react'
+import { Alert, FlatList, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { Participant } from '../../components/Participant'
 import { styles } from './styles'
 
 export function Home() {
 
-  const participants = ['Emanuela', 'Margarida', 'Marília', 'Letícia', 'Kirah', 'Paula', 'Maisa', 'Maria', 'Jéssica', 'Janeth', 'Jandira']
+  //participants => é o estado && setParticipants é função que atualiza o estado.
+  const [participants, setParticipants] = useState(['Emanuela'])
 
   function handleParticipantAdd() {
-    console.log('Clicou para adicionar')
+
+    if (participants.includes('Telma')) {
+      return Alert.alert('Participante duplicado', 'Já existe um participante na lista com este nome.')
+    }
+
+    setParticipants(prevState => [...prevState, 'Margarida'])
   }
 
   function handleParticipantRemove(name: string) {
-    console.log(`Clicou para remover ${name}`)
+    Alert.alert('Remover participante', `Deseja remover ${name} da lista de participante?`, [
+      {
+        text: 'Sim',
+        onPress: () => Alert.alert('Participante removido com sucesso!')
+      },
+      {
+        text: 'Não',
+        style: 'cancel'
+      }
+    ])
   }
 
   return (
