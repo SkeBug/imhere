@@ -5,7 +5,10 @@ import { styles } from './styles'
 export function Home() {
 
   function handleParticipantAdd() {
-    console.log('clique')
+    console.log('Clicou para adicionar')
+  }
+  function handleParticipantRemove(name: string) {
+    console.log(`Clicou para remover ${name}`)
   }
   
   return (
@@ -33,10 +36,7 @@ export function Home() {
       </View>
 
       <ScrollView>
-        <Participant name="Emanuela Xavier" />
-        <Participant name="Margarida André" />
-        <Participant name="Joelma Maria"/>
-        <Participant name="Marília Kinanga" />
+        <Participant name="Emanuela Xavier" onRemove={ () => handleParticipantRemove('Emanuela Xavier') } />
       </ScrollView>
 
     </View>
