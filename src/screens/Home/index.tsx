@@ -4,13 +4,16 @@ import { styles } from './styles'
 
 export function Home() {
 
+  const participants = ['Emanuela', 'Margarida', 'Marília', 'Letícia', 'Kirah', 'Paula', 'Maisa', 'Maria', 'Jéssica', 'Janeth', 'Jandira']
+
   function handleParticipantAdd() {
     console.log('Clicou para adicionar')
   }
+
   function handleParticipantRemove(name: string) {
     console.log(`Clicou para remover ${name}`)
   }
-  
+
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>
@@ -35,8 +38,16 @@ export function Home() {
         </TouchableOpacity>
       </View>
 
-      <ScrollView>
-        <Participant name="Emanuela Xavier" onRemove={ () => handleParticipantRemove('Emanuela Xavier') } />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {
+          participants.map(participant => (
+            <Participant
+              key={participant}
+              name={participant}
+              onRemove={() => handleParticipantRemove(`${participant}`)}
+            />
+          ))
+        }
       </ScrollView>
 
     </View>
