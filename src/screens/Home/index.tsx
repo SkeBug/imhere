@@ -20,10 +20,13 @@ export function Home() {
   }
 
   function handleParticipantRemove(name: string) {
+
+    // return console.log(participants.filter(participant => participant !== name))
+
     Alert.alert('Remover participante', `Deseja remover ${name} da lista de participante?`, [
       {
         text: 'Sim',
-        onPress: () => Alert.alert('Participante removido com sucesso!')
+        onPress: () => setParticipants(prevState => prevState.filter(participant => participant !== name))
       },
       {
         text: 'Não',
@@ -35,11 +38,11 @@ export function Home() {
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>
-        Nome do evento
+        Semana Front-end (mobile)
       </Text>
 
       <Text style={styles.eventDate}>
-        Quinta, 16 de Fevereiro de 2023
+        Domingo, 19 de Fevereiro de 2023
       </Text>
 
       <View style={styles.form}>
